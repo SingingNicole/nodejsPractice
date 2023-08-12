@@ -1,0 +1,14 @@
+수많은 패키지의 관리를 위해서는 package.json이 필요함.
+    => npm은 package.json을 만드는 명령어를 제공한다
+
+* npm 실행법
+    - 콘솔로 이동, npm init 입력
+        package name: [프로젝트 이름 입력]
+        version: [프로젝트 버전]
+        description: [프로젝트 설명]
+        entry point: index.js
+        test command: [엔터 키 클릭]
+        git repository: [엔터 키 클릭]
+        keywords: [엔터 키 클릭]
+        author: [제작자 이름]
+        license: [엔터 키 클릭]
