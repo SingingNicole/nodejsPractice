@@ -6,7 +6,10 @@
       <h2>팔로잉 목록</h2>
       {% if user.Followings %}
         {% for following in user.Followings %}
-          <div>{{following.nick}}</div>
+          <div>
+            {{following.nick}}
+            <button class="unfollow" id="{{following.id}}" type="submit" onclick="getId(this)">언팔로우</button>
+          </div>
         {% endfor %}
       {% endif %}
     </div>
@@ -19,4 +22,21 @@
       {% endif %}
     </div>
   </div>
+{% endblock %}
+
+{% block script %}
+  <script>
+    function getId(elem) {
+      if (confirm('언팔로우 하시겠습니까?')) {
+        var targetId = elem.getAttribute('id');
+        axios.delete(`/user/${targetId}/unfollow`)
+          .then(() => {
+            location.reload();
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      };
+    };
+  </script>
 {% endblock %}

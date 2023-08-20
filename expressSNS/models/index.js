@@ -1,9 +1,6 @@
 const Sequelize = require('sequelize');
 const fs = require('fs');
 const path = require('path')
-const User = require('./user');
-const Post = require('./post');
-const Hashtag = require('./hashtag');
 const env = process.env.NODE_ENV || 'development';
 const config = require('../config/config')[env];
 
@@ -24,7 +21,7 @@ fs
   .forEach(file => {  // 해당 파일의 모델을 불러와서 init
     const model = require(path.join(__dirname, file));
     // const model = sequelize['import'](path.join(__dirname, file));
-    console.log(file, model.name);
+    // console.log(file, model.name);
     db[model.name] = model;
     model.initiate(sequelize);
   });
